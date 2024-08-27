@@ -18,26 +18,53 @@ Hardware Requirements
 - BLDC motor (e.g., T200 thruster)
 
 Pinout
++---------------------+
+                               |                     |
+                               |      Arduino        |
+                               |                     |
++----------+                   |                     |
+|          |                   |   5 ----+           |
+|  CAN Bus |                   |   6 ----|--+        |
+|  Module  |                   |   7 ----|--|--+     |
+| (MCP2515)|                   |   8 ----|--|--|--+  |
+|          |                   |   9 ----|--|--|--|--+
+|  CS -----|-- 15              |  10 ----|--|--|--|--|--+
+|  SO -----|-- MISO            |         |  |  |  |  |  |
+|  SI -----|-- MOSI            |        +H  L  H  L  H  L    MOSFET Drivers
+| SCK -----|-- SCK             |         |  |  |  |  |  |    (for each phase)
+|          |                   |         |  |  |  |  |  |
++----------+                   |         v  v  v  v  v  v
+                               |        Phase A  B  C  
+                               |                     |    +-------------------+
+                               |  A0 ----------------|----|                   |
+                               |  A1 ----------------|----|   BLDC Motor      |
+                               |  A2 ----------------|----|                   |
+                               |                     |    | (e.g. T200 thruster) |
+                               +---------------------+    |                   |
+                                                          +-------------------+
+                                        |  |  |
+                                        |  |  |
+                                   Back-EMF Sensing
+                                   (for each phase)
 
-MOSFET Control Pins
-- Phase A High: Pin 5
-- Phase A Low: Pin 6
-- Phase B High: Pin 7
-- Phase B Low: Pin 8
-- Phase C High: Pin 9
-- Phase C Low: Pin 10
+Notes:
+1. MOSFET connections:
+   - Phase A: High (Pin 5), Low (Pin 6)
+   - Phase B: High (Pin 7), Low (Pin 8)
+   - Phase C: High (Pin 9), Low (Pin 10)
 
-Back-EMF Sensing (ADC) Pins
-- Phase A: A0
-- Phase B: A1
-- Phase C: A2
+2. Back-EMF sensing:
+   - Phase A: A0
+   - Phase B: A1
+   - Phase C: A2
 
-CAN Bus Module (MCP2515)
-- CS: Pin 15 (Can be changed in the code)
-- SO: MISO of Arduino
-- SI: MOSI of Arduino
-- SCK: SCK of Arduino
+3. CAN Bus Module connections:
+   - CS: Pin 15
+   - SO: MISO of Arduino
+   - SI: MOSI of Arduino
+   - SCK: SCK of Arduino
 
+4. Double-check all connections before powering on the system!!!! (i maybe shorted a 12v battery :3)
 Dependencies
 
 - SPI library (built-in to arduino ide :3)
