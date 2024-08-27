@@ -2,3 +2,60 @@ adaESC Firmware  Copyright (C) 2024  Ada Tessar
 This program comes with ABSOLUTELY NO WARRANTY
 This is free software, and you are welcome to redistribute it
 under certain conditions
+
+This project implements a sensorless Brushless DC (BLDC) motor controller using an Arduino and the MCP2515 CAN bus module. The controller uses back-EMF sensing for sensorless commutation and receives speed control commands via CAN bus.
+
+- Sensorless commutation using back-EMF sensing
+- Speed control via CAN bus
+- Supports minimum speed for reliable sensorless operation
+- MOSFET-based motor drive
+
+Hardware Requirements
+
+- Arduino board (e.g., Arduino Uno, Nano, or compatible)
+- MCP2515 CAN bus module
+- 6 mosfets
+- BLDC motor (e.g., T200 thruster)
+
+Pinout
+
+MOSFET Control Pins
+- Phase A High: Pin 5
+- Phase A Low: Pin 6
+- Phase B High: Pin 7
+- Phase B Low: Pin 8
+- Phase C High: Pin 9
+- Phase C Low: Pin 10
+
+Back-EMF Sensing (ADC) Pins
+- Phase A: A0
+- Phase B: A1
+- Phase C: A2
+
+CAN Bus Module (MCP2515)
+- CS: Pin 15 (Can be changed in the code)
+- SO: MISO of Arduino
+- SI: MOSI of Arduino
+- SCK: SCK of Arduino
+
+Dependencies
+
+- SPI library (built-in to arduino ide :3)
+- MCP2515 library (https://github.com/autowp/arduino-mcp2515)
+
+ Setup
+
+1. Connect the MOSFET driver circuit and BLDC motor according to the pinout.
+2. Connect the MCP2515 CAN bus module to the Arduino.
+3. Install the MCP2515 library in your Arduino IDE.
+4. Compile and upload the code to your Arduino board (CHECK YOUR PINOUT AND WIRING NOW!!!!!!)
+
+Usage
+
+1. The motor controller listens for CAN messages with ID 0x123.
+2. Send a 16-bit speed value (0-1000) via CAN to control the motor speed.
+3. The controller will automatically handle commutation and speed control.
+
+Ensure proper cooling and protection for the MOSFETs and motor during operation.
+
+This code controls high-power electronics. Incorrect use can lead to equipment damage or personal injury. Always ensure proper insulation, cooling, and safety measures when working with motor controllers and power electronics.
