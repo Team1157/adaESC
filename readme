@@ -9,6 +9,8 @@ This project implements a sensorless Brushless DC (BLDC) motor controller using 
 - Speed control via CAN bus
 - Supports minimum speed for reliable sensorless operation
 - MOSFET-based motor drive
+- canbus control (example in canbus-motor-test.py)
+- not rev hardware client (tm) for testing directly over usb
 
 Hardware Requirements
 
