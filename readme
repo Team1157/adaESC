@@ -34,7 +34,7 @@ Pinout
 | SCK -----|-- SCK             |         |  |  |  |  |  |    (for each phase)
 |          |                   |         |  |  |  |  |  |
 +----------+                   |         v  v  v  v  v  v
-                               |        Phase A  B  C  
+                               |     Phase A     B     C  
                                |                     |    +-------------------+
                                |  A0 ----------------|----|                   |
                                |  A1 ----------------|----|   BLDC Motor      |
