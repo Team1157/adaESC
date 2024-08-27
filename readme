@@ -12,10 +12,7 @@ This project implements a sensorless Brushless DC (BLDC) motor controller using 
 
 Hardware Requirements
 
-- Arduino board (e.g., Arduino Uno, Nano, or compatible)
-- MCP2515 CAN bus module
-- 6 mosfets
-- BLDC motor (e.g., T200 thruster)
+see /partslist
 
 Pinout
                                +---------------------+
