@@ -50,7 +50,7 @@ void setup() {
   mcp2515.setNormalMode();
 
   // Set up ADC
-  analogReference(DEFAULT);
+  analogReference(AR_DEFAULT);
 
   // Initialize Serial for TUI
   Serial.begin(SERIAL_BAUD);
