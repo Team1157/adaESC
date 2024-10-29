@@ -1,5 +1,5 @@
-1. Arduino Pro Mini (5V, 16MHz)
-2. MCP2515 CAN Bus Module (https://www.amazon.com/EC-Buying-Controller-Receiver-Development/dp/B0BXDJWLPF_)
+1. Xiao RP2040
+2. Xiao CANBUS expansion board (https://wiki.seeedstudio.com/xiao-can-bus-expansion/) 
 3. 6x N-channel MOSFETs (IRFZ44N)
 5. BLDC motor (e.g., T200 thruster)
 6. 3x 10kΩ resistors (for back-EMF voltage dividers)
