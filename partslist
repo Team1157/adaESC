@@ -1,7 +1,6 @@
 1. Arduino Pro Micro (5V, 16MHz)
 2. MCP2515 CAN Bus Module
 3. 6x N-channel MOSFETs (e.g., IRFZ44N or similar)
-4. 6x MOSFET drivers (e.g., IR2104 or similar)
 5. BLDC motor (e.g., T200 thruster)
 6. 3x 10kΩ resistors (for back-EMF voltage dividers)
 7. 3x 1kΩ resistors (for back-EMF voltage dividers)
