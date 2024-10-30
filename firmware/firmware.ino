@@ -2,12 +2,12 @@
 #include <mcp2515.h>
 
 // MOSFET control pins
-#define MOSFET_AH 5  // Phase A High
-#define MOSFET_AL 6  // Phase A Low
-#define MOSFET_BH 7  // Phase B High
-#define MOSFET_BL 8  // Phase B Low
-#define MOSFET_CH 9  // Phase C High
-#define MOSFET_CL 10 // Phase C Low
+#define MOSFET_AH 0  // Phase A High
+#define MOSFET_AL 1  // Phase A Low
+#define MOSFET_BH 2  // Phase B High
+#define MOSFET_BL 3  // Phase B Low
+#define MOSFET_CH 4  // Phase C High
+#define MOSFET_CL 5 // Phase C Low
 
 // ADC pins for back-EMF sensing
 #define BEMF_A A0
@@ -15,7 +15,7 @@
 #define BEMF_C A2
 
 // CAN bus setup
-MCP2515 mcp2515(15);
+MCP2515 mcp2515(7);
 
 // Motor parameters
 #define POLE_PAIRS 7
