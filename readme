@@ -4,14 +4,13 @@ This program comes with ABSOLUTELY NO WARRANTY
 This is free software, and you are welcome to redistribute it
 under certain conditions
 
-This project implements a sensorless Brushless DC (BLDC) motor controller using an Arduino and the MCP2515 CAN bus module. The controller uses back-EMF sensing for sensorless commutation and receives speed control commands via CAN bus.
+This project implements a sensorless Brushless DC (BLDC) motor controller using an Arduino and the MCP2515 CAN bus module. The controller uses open loop control for sensorless commutation and receives speed control commands via CAN bus.
 
-- Sensorless commutation using back-EMF sensing
-- Speed control via CAN bus
+
 - Supports minimum speed for reliable sensorless operation
 - MOSFET-based motor drive
 - canbus control (example in canbus-motor-test.py)
-- not rev hardware client (tm) for testing directly over usb
+- user interface for testing directly over usb
 
 Hardware Requirements
 
@@ -19,11 +18,10 @@ see /partslist
 
 Pinout
                                +---------------------+
-                               |                     |
-                               |      Arduino        |
+                               |    Xiao ESP32-C3    |
                                |                     |
 +----------+                   |                     |
-|          |                   |                     | 0 ----+           
+|   Xiao   |                   |                     | 0 ----+           
 |  CAN Bus |                   |                     | 1 ----|--+        
 |  Module  |                   |                     | 2 ----|--|--+     
 | (MCP2515)|                   |                     | 3 ----|--|--|--+  
@@ -32,20 +30,10 @@ Pinout
 |  SO -----|-- MISO            |                     |       |  |  |  |  |  |
 |  SI -----|-- MOSI            |                     |      +H  L  H  L  H  L    MOSFET Drivers
 | SCK -----|-- SCK             |                     |       |  |  |  |  |  |    (for each phase)
-|          |                   |                     |       |  |  |  |  |  |
 +----------+                   |                     |       v  v  v  v  v  v
                                |                     |  Phase A     B     C  
-                               |                     |                       
-                               |                     |A0 --------------------A
-                               |                     |A1 --------------------B
-                               |                     |A2 --------------------C
-                               |                     |                       
                                +---------------------+                       
                                                                              
-                                        |  |  |
-                                        |  |  |
-                                   Back-EMF Sensing
-                                   (for each phase)
                        +-------------------+
  A --------------------|                   |
  B --------------------|   BLDC Motor      |
@@ -59,13 +47,8 @@ Notes:
    - Phase B: High (Pin 7), Low (Pin 8)
    - Phase C: High (Pin 9), Low (Pin 10)
 
-2. Back-EMF sensing:
-   - Phase A: A0
-   - Phase B: A1
-   - Phase C: A2
-
 3. CAN Bus Module connections:
-   - CS: Pin 15
+   - CS: Pin 7
    - SO: MISO of Arduino
    - SI: MOSI of Arduino
    - SCK: SCK of Arduino
