@@ -4,10 +4,10 @@
 
 // MOSFET control pins
 #define MOSFET_AH 0  // Phase A High
-#define MOSFET_AL 1  // Phase A Low
-#define MOSFET_BH 2  // Phase B High
-#define MOSFET_BL 3  // Phase B Low
-#define MOSFET_CH 4  // Phase C High
+#define MOSFET_AL 2  // Phase A Low
+#define MOSFET_BH 1  // Phase B High
+#define MOSFET_BL 4  // Phase B Low
+#define MOSFET_CH 3  // Phase C High
 #define MOSFET_CL 5  // Phase C Low
 
 // EEPROM address for CAN ID
